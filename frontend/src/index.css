@@ -1,0 +1,516 @@
+:root {
+  --bg-1: #0f172a;
+  --bg-2: #1e293b;
+  --panel: #0b1225c9;
+  --line: #7dd3fc4a;
+  --text: #e2e8f0;
+  --muted: #93c5fd;
+  --accent: #22d3ee;
+  --safe: #34d399;
+  --fire: #fb7185;
+  --flood: #38bdf8;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #1e3a8a70, transparent),
+    radial-gradient(1000px 420px at 90% 110%, #0ea5e95e, transparent),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero-title {
+  margin: 8px 0 4px;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.03em;
+}
+
+.hero-subtitle {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 0.9fr;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 18px 35px #02061757;
+}
+
+.title {
+  margin: 2px 0 14px;
+  color: #bae6fd;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.status-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.status-select {
+  flex: 1;
+  background: #0b1120;
+  color: var(--text);
+  border: 1px solid #67e8f952;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.status-normal {
+  background: #34d3991e;
+  color: #6ee7b7;
+}
+
+.status-fire {
+  background: #fb718532;
+  color: #fda4af;
+  box-shadow: 0 0 16px #fb71856b;
+}
+
+.status-flood {
+  background: #38bdf831;
+  color: #7dd3fc;
+  box-shadow: 0 0 16px #38bdf863;
+}
+
+.button {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #67e8f95c;
+  background: #0a1022;
+  color: var(--text);
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  border-color: #22d3ee;
+}
+
+.button.primary {
+  background: linear-gradient(135deg, #22d3ee, #10b981);
+  color: #031423;
+  border: 0;
+  font-weight: 700;
+}
+
+.button.alert {
+  border-color: #fb718593;
+  color: #fda4af;
+}
+
+.alarm {
+  margin-top: 10px;
+  font-weight: 700;
+  color: #fda4af;
+  animation: pulse 1s infinite;
+}
+
+.phase-box {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0f172a;
+  border: 1px solid #38bdf847;
+  font-size: 13px;
+}
+
+.meter-wrap {
+  margin-top: 10px;
+}
+
+.meter-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #cbd5e1;
+}
+
+.meter {
+  height: 8px;
+  background: #111827;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  transition: width 0.45s ease;
+}
+
+.meter-fire {
+  background: linear-gradient(90deg, #fb7185, #ef4444);
+}
+
+.meter-flood {
+  background: linear-gradient(90deg, #0ea5e9, #22d3ee);
+}
+
+.material-count {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #c7d2fe;
+}
+
+.scene-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.scene-caption {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #bfdbfe;
+  line-height: 1.4;
+}
+
+.scene {
+  position: relative;
+  height: 280px;
+  border-radius: 14px;
+  border: 1px solid #67e8f947;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 30%, #22d3ee2c, transparent 50%),
+    linear-gradient(180deg, #1e293b, #0b1327 70%);
+}
+
+.scene-fire {
+  background:
+    radial-gradient(circle at 50% 45%, #fb923c57, transparent 60%),
+    linear-gradient(180deg, #3f1621, #2b1223 70%);
+}
+
+.scene-flood {
+  background:
+    radial-gradient(circle at 50% 65%, #38bdf847, transparent 60%),
+    linear-gradient(180deg, #0c2546, #0e2a52 70%);
+}
+
+.home {
+  position: absolute;
+  left: 74px;
+  top: 96px;
+  width: 128px;
+}
+
+.roof {
+  width: 0;
+  height: 0;
+  border-left: 64px solid transparent;
+  border-right: 64px solid transparent;
+  border-bottom: 44px solid #be123c;
+}
+
+.body {
+  height: 84px;
+  background: #e2e8f0;
+  border-radius: 2px 2px 8px 8px;
+  position: relative;
+}
+
+.door {
+  position: absolute;
+  width: 30px;
+  height: 44px;
+  background: #334155;
+  left: calc(50% - 15px);
+  bottom: 0;
+  border-radius: 6px 6px 0 0;
+}
+
+.drone-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 12px #22d3eeb5;
+  transition: left 0.5s ease, top 0.5s ease;
+}
+
+.flames {
+  position: absolute;
+  left: 108px;
+  top: 72px;
+}
+
+.flame {
+  position: absolute;
+  width: 20px;
+  height: 32px;
+  border-radius: 50% 50% 35% 35%;
+  background: radial-gradient(circle at 50% 30%, #fef08a, #fb923c 55%, #ef4444);
+  animation: flameDance 0.9s infinite ease-in-out;
+}
+
+.flame-1 {
+  left: 0;
+  animation-delay: 0s;
+}
+
+.flame-2 {
+  left: 16px;
+  animation-delay: 0.2s;
+}
+
+.flame-3 {
+  left: 32px;
+  animation-delay: 0.4s;
+}
+
+.waves {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 30px;
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 16px;
+  border-radius: 20px;
+  background: #38bdf899;
+  animation: waveMove 1.9s infinite ease-in-out;
+}
+
+.wave-1 {
+  bottom: 0;
+}
+
+.wave-2 {
+  bottom: 14px;
+  animation-delay: 0.35s;
+}
+
+.wave-3 {
+  bottom: 28px;
+  animation-delay: 0.7s;
+}
+
+.materials {
+  position: absolute;
+  left: 208px;
+  bottom: 54px;
+  width: 70px;
+  height: 56px;
+}
+
+.outside-materials {
+  position: absolute;
+  right: 18px;
+  bottom: 40px;
+  width: 94px;
+  height: 64px;
+}
+
+.crate {
+  position: absolute;
+  width: 18px;
+  height: 14px;
+  border-radius: 3px;
+  background: #f59e0b;
+}
+
+.crate-1 {
+  left: 0;
+  top: 0;
+}
+
+.crate-2 {
+  left: 18px;
+  top: 8px;
+}
+
+.crate-3 {
+  left: 38px;
+  top: 4px;
+}
+
+.crate-4 {
+  left: 8px;
+  top: 24px;
+}
+
+.crate-5 {
+  left: 28px;
+  top: 26px;
+}
+
+.crate-6 {
+  left: 48px;
+  top: 22px;
+}
+
+.crate-out {
+  background: #10b981;
+}
+
+.out-1 {
+  left: 0;
+  top: 30px;
+}
+
+.out-2 {
+  left: 14px;
+  top: 18px;
+}
+
+.out-3 {
+  left: 28px;
+  top: 6px;
+}
+
+.out-4 {
+  left: 44px;
+  top: 30px;
+}
+
+.out-5 {
+  left: 58px;
+  top: 18px;
+}
+
+.out-6 {
+  left: 74px;
+  top: 3px;
+}
+
+.materials-clearing .crate-in {
+  animation: clearOut 1.2s ease forwards;
+}
+
+.materials-clearing .crate-1 {
+  animation: clearOut 1.2s ease forwards;
+}
+
+.materials-clearing .crate-2 {
+  animation: clearOut 1.2s ease 0.25s forwards;
+}
+
+.materials-clearing .crate-3 {
+  animation: clearOut 1.2s ease 0.5s forwards;
+}
+
+.hint {
+  margin-top: 8px;
+  color: #7dd3fc;
+}
+
+.log {
+  height: 320px;
+  overflow: auto;
+  font-family: "Consolas", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  background: #0307128c;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #67e8f93d;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes flameDance {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.08);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(-8px);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes clearOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(140px) translateY(-18px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1030px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}
