@@ -2,8 +2,6 @@ from .cleanup_engine import clear_material_tick
 from .constants import CLEAR_POS, FLOOD_POS
 from .drone_engine import drone_arrived
 from .helpers import add_log, notify_owner, set_drone_target
-
-
 def simulate_flood(state: dict) -> None:
     if state["phase"] == "detected":
         state["phase"] = "drone_to_flood"

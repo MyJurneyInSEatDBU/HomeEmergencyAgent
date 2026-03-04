@@ -170,3 +170,11 @@ Frontend runs on `http://localhost:5173` and proxies `/api` to backend `http://l
 - System is now **autonomous only** (manual action buttons removed).
 - `reset` endpoint/UI reset control removed.
 - Owner communication is simulated through logs via `Owner notified (simulation): ...`.
+
+
+
+  python -m pip install -r backend\requirements.txt  
+  uvicorn backend.main:app --reload --port8000 
+
+   # Backend                                        
+  python -m pip install -r backend\requirements.txt  uvicorn backend.main:app --reload --port 8000 

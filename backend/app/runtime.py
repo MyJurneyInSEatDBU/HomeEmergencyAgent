@@ -10,16 +10,13 @@ class AgentRuntime:
         self.state = make_state()
         self.state_lock = asyncio.Lock()
         self.simulation_task: asyncio.Task | None = None
-
     async def simulation_loop(self) -> None:
         while True:
             async with self.state_lock:
                 simulate_step(self.state)
             await asyncio.sleep(0.6)
-
     async def start(self) -> None:
         self.simulation_task = asyncio.create_task(self.simulation_loop())
-
     async def stop(self) -> None:
         if self.simulation_task:
             self.simulation_task.cancel()

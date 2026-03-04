@@ -20,7 +20,6 @@ def simulate_fire(state: dict) -> None:
         add_log(state, "Drone reached fire zone. Water suppression started")
         notify_owner(state, "Fire response active: water suppression has started.")
         return
-
     if state["phase"] == "deploying_water":
         state["fire_intensity"] = max(0, state["fire_intensity"] - 18)
         state["metrics"]["water_cycles"] += 1

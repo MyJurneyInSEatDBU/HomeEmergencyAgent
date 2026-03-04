@@ -1,6 +1,4 @@
 import math
-
-
 def update_drone_position(state: dict) -> None:
     dx = state["drone"]["target_x"] - state["drone"]["x"]
     dy = state["drone"]["target_y"] - state["drone"]["y"]

@@ -1,6 +1,6 @@
 export function LogPanel({ logs }) {
   return (
-    <section className="panel">
+    <section className="panel log-panel">
       <h2 className="title">Command Log</h2>
       <div className="log">
         {logs.length === 0 && <div>No events yet.</div>}

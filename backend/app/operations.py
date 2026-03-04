@@ -7,6 +7,10 @@ def detect(state: dict, emergency: str) -> dict:
     if emergency not in {"none", "fire", "flood"}:
         return {"status": "unknown_emergency"}
 
+    # Clear previous timeline when status changes.
+    if state["emergency"] != emergency:
+        state["logs"] = []
+
     if emergency == "none":
         state["emergency"] = "none"
         state["phase"] = "idle"
