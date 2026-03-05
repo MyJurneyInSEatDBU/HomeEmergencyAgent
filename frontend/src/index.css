@@ -57,6 +57,7 @@ body {
   font-size: clamp(15px, 1.6vw, 20px);
 }
 
+
 .app-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr 0.9fr;
@@ -540,6 +541,7 @@ body {
     opacity: 0;
   }
 }
+
 
 @media (max-width: 1030px) {
   body {

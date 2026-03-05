@@ -20,3 +20,4 @@ def clear_material_tick(state: dict) -> None:
         state["fire_intensity"] = 0
         state["flood_level"] = 0
         set_drone_target(state, HOME_POS[0], HOME_POS[1], "returning_home")
+

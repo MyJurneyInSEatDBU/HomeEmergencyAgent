@@ -40,7 +40,7 @@ export default function App() {
           materialsInside={state.materials_inside}
           materialsOutside={state.materials_outside}
         />
-
+       
         <LogPanel logs={state.logs} />
       </div>
     </div>

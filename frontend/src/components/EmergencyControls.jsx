@@ -3,7 +3,6 @@ const emergencyOptions = [
   { value: 'fire', label: 'Fire' },
   { value: 'flood', label: 'Flood' },
 ]
-
 export function EmergencyControls({
   emergency,
   phase,
@@ -34,7 +33,6 @@ export function EmergencyControls({
         </select>
         <span className={`status-pill ${statusClass}`}>{emergency}</span>
       </div>
-
       {alarmActive && <div className="alarm">{alarmText}</div>}
       <div className="phase-box">Agent phase: <strong>{phase}</strong></div>
 
