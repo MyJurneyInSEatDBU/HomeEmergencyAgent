@@ -4,10 +4,8 @@ import {
   getState,
 } from '../api/emergencyApi'
 import { makeInitialState } from '../utils/stateFormat'
-
 export function useEmergencyAgent() {
   const [state, setState] = useState(makeInitialState)
-
   const refreshState = useCallback(async () => {
     const data = await getState()
     setState(data)

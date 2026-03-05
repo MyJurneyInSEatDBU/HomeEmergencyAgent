@@ -1,18 +1,15 @@
 import { useMemo } from 'react'
 import { EmergencyControls } from './components/EmergencyControls'
-import { AgentScene } from './components/AgentScene'
+import { ThreeScene } from './components/ThreeScene'
 import { LogPanel } from './components/LogPanel'
 import { useEmergencyAgent } from './hooks/useEmergencyAgent'
 import { useAlarm } from './hooks/useAlarm'
 import { getAlarmText, getStatusClass } from './utils/stateFormat'
-
 export default function App() {
   const { state, actions } = useEmergencyAgent()
   useAlarm(state.emergency)
-
   const statusClass = useMemo(() => getStatusClass(state.emergency), [state.emergency])
   const alarmText = useMemo(() => getAlarmText(state.emergency), [state.emergency])
-
   return (
     <div className="app-shell">
       <h1 className="hero-title">Home Emergency Agent</h1>
@@ -30,8 +27,7 @@ export default function App() {
           alarmText={alarmText}
           onEmergencyChange={actions.onEmergencyChange}
         />
-
-        <AgentScene
+        <ThreeScene
           emergency={state.emergency}
           phase={state.phase}
           drone={state.drone}
@@ -40,7 +36,6 @@ export default function App() {
           materialsInside={state.materials_inside}
           materialsOutside={state.materials_outside}
         />
-       
         <LogPanel logs={state.logs} />
       </div>
     </div>

@@ -35,7 +35,6 @@ export function EmergencyControls({
       </div>
       {alarmActive && <div className="alarm">{alarmText}</div>}
       <div className="phase-box">Agent phase: <strong>{phase}</strong></div>
-
       <div className="meter-wrap">
         <div className="meter-row">
           <span>Fire intensity</span>

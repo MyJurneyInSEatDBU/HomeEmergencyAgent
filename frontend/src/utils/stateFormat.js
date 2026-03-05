@@ -13,7 +13,6 @@ export function makeInitialState() {
     logs: [],
   }
 }
-
 export function getStatusClass(emergency) {
   if (emergency === 'fire') return 'status-fire'
   if (emergency === 'flood') return 'status-flood'

@@ -1,16 +1,11 @@
 from .constants import HOME_POS
 from .helpers import add_log, notify_owner, set_drone_target
-
-
 def detect(state: dict, emergency: str) -> dict:
     emergency = emergency.lower()
     if emergency not in {"none", "fire", "flood"}:
         return {"status": "unknown_emergency"}
-
-    # Clear previous timeline when status changes.
     if state["emergency"] != emergency:
         state["logs"] = []
-
     if emergency == "none":
         state["emergency"] = "none"
         state["phase"] = "idle"
@@ -24,7 +19,6 @@ def detect(state: dict, emergency: str) -> dict:
         add_log(state, "Emergency cleared by operator")
         notify_owner(state, "Emergency status set to none. Monitoring only.")
         return {"status": "none_detected"}
-
     state["emergency"] = emergency
     state["phase"] = "detected"
     state["last_action"] = "detected"

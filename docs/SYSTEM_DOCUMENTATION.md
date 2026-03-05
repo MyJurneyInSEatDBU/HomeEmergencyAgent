@@ -180,4 +180,5 @@ Frontend runs on `http://localhost:5173` and proxies `/api` to backend `http://l
   python -m pip install -r backend\requirements.txt  uvicorn backend.main:app --reload --port 8000 
 
 
-  codex resume 019cba4b-f745-79c0-9bd0-9672e9e43e34
+
+  uvicorn main:app --reload --port 8000 

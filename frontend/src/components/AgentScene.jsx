@@ -18,7 +18,6 @@ export function AgentScene({
       <p className="scene-caption">
         Fire triggers suppression and cleanup. Flood triggers evacuation and local material removal.
       </p>
-
       <div
         className={`scene ${emergency === 'fire' ? 'scene-fire' : ''} ${emergency === 'flood' ? 'scene-flood' : ''}`}
       >
@@ -28,7 +27,6 @@ export function AgentScene({
             <div className="door" />
           </div>
         </div>
-
         {fireIntensity > 0 && (
           <div className="flames" style={{ opacity: flameOpacity }}>
             <span className="flame flame-1" />
@@ -36,7 +34,6 @@ export function AgentScene({
             <span className="flame flame-3" />
           </div>
         )}
-
         {floodLevel > 0 && (
           <div className="waves" style={{ opacity: waveOpacity }}>
             <span className="wave wave-1" />
@@ -44,7 +41,6 @@ export function AgentScene({
             <span className="wave wave-3" />
           </div>
         )}
-
         <div className={`materials ${phase === 'clearing_materials' ? 'materials-clearing' : ''}`}>
           {Array.from({ length: shownInside }).map((_, idx) => (
             <span key={`inside-${idx}`} className={`crate crate-in crate-${idx + 1}`} />
@@ -56,7 +52,6 @@ export function AgentScene({
             <span key={`outside-${idx}`} className={`crate crate-out out-${idx + 1}`} />
           ))}
         </div>
-
         <div className="drone-dot" style={{ left: drone.x, top: drone.y }} />
       </div>
       <small className="hint">Drone status: {drone.status}</small>
